@@ -1,0 +1,20 @@
+<h1>Game#game</h1>
+<p>Here is your grid:</p>
+<p><%= @letters.join(" ") %></p>
+<p>What's your best shot ?</p>
+<form action="score">
+  <input type="text" name="attempt">
+    <input type="hidden" name="grid" value="">
+    <%= hidden_field_tag :grid, @letters.join("") %>
+    <input type="hidden" name="start_time" id="start_time" value="">
+    <input type="hidden" name="end_time" id="end_time" value="">
+  <input type="submit" id="submit">
+</form>
+<script>
+$( document ).ready(function() {
+  $('#start_time').val(Date.now());
+  $('#submit').click(function() {
+    $('#end_time').val(Date.now());
+  });
+});
+</script>
